@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 pipeline {
     agent any
 
@@ -11,3 +12,18 @@ pipeline {
 
     }
 }
+=======
+pipeline {
+    agent any
+
+    stages {
+        stage('Verify Branch') {
+            steps {
+                echo "${GIT_BRANCH}"
+            }
+        }
+        
+
+    }
+}
+>>>>>>> 5516e334c2976adc36149f408fb139bfdb968060
