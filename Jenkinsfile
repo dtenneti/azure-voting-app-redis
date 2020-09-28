@@ -9,18 +9,23 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                  sh(script: 'sudo docker images -a')
+                  sh(script: 'docker images -a')
                   sh(script:"""
                     cd azure-vote/
-                      whoami
-                      hostname
-                      pwd
-                      sudo docker images -a
-                      sudo docker build -t jenkins-pipeline .
-                      sudo docker images -a
-                     cd ..
+                    sudo docker images -a
+                    sudo docker build -t jenkins-pipeline .
+                    sudo docker images -a
+                    cd ..
                     """
                      )
+            }
+            post{
+                success {
+                    echo "Docker successful"
+                }
+                failure {
+                    echo "App failed to start :(" 
+                }
             }
         }
 
