@@ -15,9 +15,9 @@ pipeline {
                       whoami
                       hostname
                       pwd
-                      docker images -a
-                      docker build -t jenkins-pipeline .
-                      docker images -a
+                      sudo docker images -a
+                      sudo docker build -t jenkins-pipeline .
+                      sudo docker images -a
                      cd ..
                     """
                      )
