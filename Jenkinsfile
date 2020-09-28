@@ -12,6 +12,9 @@ pipeline {
                   sh(script: 'docker images -a')
                   sh(script:"""
                     cd azure-vote/
+                      whoami
+                      hostname
+                      pwd
                       docker images -a
                       docker build -t jenkins-pipeline .
                       docker images -a
